@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "source": {
+    "table_name": "source_table",
+    "database": "source_db",
+    "incremental": true,
+    "incremental_column": "updated_at"
+  },
+  "target": {
+    "target_table_name": "target_table",
+    "target_database": "target_db"
+  },
+  "connection": {
+    "connection_string": "mysql://user:pass@localhost/db",
+    "connection_type": "mysql"
+  },
+  "data_patterns": {
+    "pattern": "merge",
+    "schemaEnforcement": true
+  },
+  "trigger": "daily"
+}

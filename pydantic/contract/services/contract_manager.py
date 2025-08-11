@@ -53,17 +53,8 @@ def migrate_contract(old_contract: SQLContract) -> SQLContract:
         new_contract = model_classes[1](**new_data)
         print(f"Migrated contract to version {new_contract.version}")
         return new_contract
-        
-
-    # if isinstance(old_contract, SQLContractV1):
-    #     # Example migration logic from V1 to V2
-    #     new_data = old_contract.model_dump()
-    #     new_data["version"] = "2.0"
-    #     new_data["description"] = "Migrated from V1"
-    #     new_contract = SQLContractV2(**new_data)
-    #     return new_contract
-    # else:
-    #     raise ValueError("Unsupported contract version for migration.")
+    else:
+        raise ValueError("Unsupported contract version for migration.")
     
 if __name__ == "__main__":
     contract_json = """
